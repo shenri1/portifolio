@@ -1,0 +1,35 @@
+---
+const year = new Date().getFullYear();
+
+const socials = [
+  { href: "https://github.com/shenri1", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/silas-cerqueira/", label: "LinkedIn" },
+  { href: "mailto:shenri.cerqueira@gmail.com", label: "Email" },
+];
+---
+
+<footer id="contato" class="border-t border-border/60">
+  <div
+    class="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-10 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+  >
+    <p>
+      <span class="text-primary">$</span> echo "© {year} Silas Cerqueira"
+    </p>
+    <ul class="flex items-center gap-4">
+      {
+        socials.map((social) => (
+          <li>
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noreferrer"
+              class="transition-colors hover:text-foreground"
+            >
+              {social.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>

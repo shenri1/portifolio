@@ -1,0 +1,33 @@
+---
+import { ThemeToggle } from "@/components/theme/ThemeToggle"
+
+const links = [
+  { href: "#sobre", label: "sobre" },
+  { href: "#skills", label: "skills" },
+  { href: "#projetos", label: "projetos" },
+  { href: "#timeline", label: "trajetória" },
+  { href: "#contato", label: "contato" },
+]
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-sm"
+>
+  <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+    <a href="#top" class="text-sm font-medium">
+      <span class="text-primary">~/</span>silas
+    </a>
+    <ul class="hidden items-center gap-6 text-xs text-muted-foreground sm:flex">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} class="transition-colors hover:text-foreground">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ThemeToggle client:load />
+  </nav>
+</header>
