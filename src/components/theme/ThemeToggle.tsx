@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SunIcon, MoonIcon } from "@phosphor-icons/react";
 import { Button } from '@/components/ui/button'
 
 export function ThemeToggle() {
@@ -10,10 +11,19 @@ export function ThemeToggle() {
 
   function toggle() {
     const next = !dark
+    const root = document.documentElement
+
+    root.classList.add('theme-transitioning')
     setDark(next)
-    document.documentElement.classList.toggle('dark', next)
+    root.classList.toggle('dark', next)
     localStorage.setItem('theme', next ? 'dark' : 'light')
+
+    window.setTimeout(() => root.classList.remove('theme-transitioning'), 650)
   }
 
-  return <Button variant="ghost" size="icon" onClick={toggle}>{dark ? '☀️' : '🌙'}</Button>
+  return (
+    <Button variant="ghost" size="icon" onClick={toggle} aria-label="Alternar tema">
+      {dark ? <SunIcon /> : <MoonIcon />}
+    </Button>
+  )
 }
