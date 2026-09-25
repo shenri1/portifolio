@@ -1,0 +1,22 @@
+---
+import Reveal from "@/components/motion/Reveal.astro"
+import { buttonVariants } from "@/components/ui/button"
+---
+
+<section id="top" class="mx-auto flex max-w-5xl flex-col gap-10 px-6 pb-24 pt-16 sm:pt-24">
+  <Reveal>
+    <div class="flex flex-col gap-6">
+      <p class="text-xs text-primary">$ whoami</p>
+      <h1 class="text-3xl font-medium leading-tight sm:text-5xl">
+        Olá, eu sou <span class="text-primary">Silas Cerqueira</span>.<br />
+        Desenvolvedor Fullstack e Analista de Dados
+      </h1>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a href="#projetos" class={buttonVariants({ size: "lg" })}>ver projetos</a>
+        <a href="#contato" class={buttonVariants({ variant: "outline", size: "lg" })}>
+          entrar em contato
+        </a>
+      </div>
+    </div>
+  </Reveal>
+</section>
