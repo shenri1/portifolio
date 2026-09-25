@@ -1,0 +1,29 @@
+---
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+
+interface Props {
+  title: string
+  description: string
+  tags: string[]
+  href?: string
+}
+
+const { title, description, tags, href = "#" } = Astro.props
+---
+
+<a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" class="block h-full">
+  <Card className="h-full transition-colors hover:bg-muted/40">
+    <CardHeader>
+      <CardTitle>{title}</CardTitle>
+      <CardDescription>{description}</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <ul class="flex flex-wrap gap-2 pt-2 text-[0.65rem] text-muted-foreground">
+        {tags.map((tag) => <li class="border border-border/60 px-2 py-0.5">{tag}</li>)}
+      </ul>
+    </CardContent>
+    <CardFooter>
+      <span class="text-xs text-primary">ver projeto →</span>
+    </CardFooter>
+  </Card>
+</a>
