@@ -1,0 +1,36 @@
+---
+import Reveal from "@/components/motion/Reveal.astro"
+
+const milestones = [
+  {
+    period: "[maio/2026 — atual]",
+    title: "Desenvolvedor Fullstack · Thera SoftwareHouse",
+    description: "Desenvolvimento de aplicação web CRM para gestão de uma empresa de construção civil, utilizando React, Tailwind CSS, Spring Boot e PostgreSQL.",
+  },
+  {
+    period: "[2025 — atual]",
+    title: "Estagiário em Análise de Dados · Equatorial",
+    description: "Desenvolvimento de pipelines ETL para extração, transformação e carga de dados, utilizando Python (Pandas) e SQL. Criação de dashboards interativos em Power BI para análise de desempenho operacional.",
+  },
+]
+---
+
+<section id="timeline" class="mx-auto max-w-5xl px-6 py-20">
+  <Reveal>
+    <p class="mb-8 text-xs text-primary">$ git log --oneline trajetória</p>
+  </Reveal>
+  <ol class="flex flex-col gap-8 border-l border-border/60 pl-6">
+    {
+      milestones.map((milestone, i) => (
+        <Reveal as="li" delay={i * 0.08} class="relative">
+          <span class="absolute -left-[1.6rem] top-1.5 size-2 rounded-full bg-primary" />
+          <p class="text-xs text-muted-foreground">{milestone.period}</p>
+          <h3 class="mt-1 text-sm font-medium">{milestone.title}</h3>
+          <p class="mt-1 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            {milestone.description}
+          </p>
+        </Reveal>
+      ))
+    }
+  </ol>
+</section>

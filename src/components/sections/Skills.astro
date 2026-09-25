@@ -1,0 +1,46 @@
+---
+import Reveal from "@/components/motion/Reveal.astro"
+
+const skillGroups = [
+  {
+    label: "linguagens",
+    items: ["Java", "GO", "Python"],
+  },
+  {
+    label: "frontend",
+    items: ["React", "Astro", "Tailwind CSS"],
+  },
+  {
+    label: "backend",
+    items: ["Spring Boot", "PostgreSQL", "REST API"],
+  },
+  {
+    label: "ferramentas",
+    items: ["Git", "Docker", "Jenkins"],
+  },
+]
+---
+
+<section id="skills" class="mx-auto max-w-5xl px-6 py-20">
+  <Reveal>
+    <p class="mb-8 text-xs text-primary">$ ls skills/</p>
+  </Reveal>
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      skillGroups.map((group, i) => (
+        <Reveal delay={i * 0.08}>
+          <div class="flex h-full flex-col gap-3 border border-border/60 p-5">
+            <h3 class="text-xs font-medium text-muted-foreground">
+              // {group.label}
+            </h3>
+            <ul class="flex flex-col gap-1.5 text-sm">
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      ))
+    }
+  </div>
+</section>
